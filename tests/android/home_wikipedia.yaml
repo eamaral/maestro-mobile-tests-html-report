@@ -1,0 +1,16 @@
+appId: org.wikipedia
+---
+- launchApp:
+    clearState: true
+
+# Validando conteúdo da home Wikipedia
+- tapOn: "CONTINUE"
+- tapOn: "CONTINUE"
+- tapOn: "CONTINUE"
+- takeScreenshot: screenshots/home_wikipedia_1
+- tapOn: "GET STARTED"
+- assertVisible:
+    id: "org.wikipedia:id/main_toolbar_wordmark"
+- assertVisible:
+    id: "org.wikipedia:id/search_container"
+- takeScreenshot: screenshots/home_wikipedia_2

@@ -1,0 +1,15 @@
+appId: org.wikipedia
+---
+- launchApp:
+    clearState: true
+
+# Validando conteúdo da página Search Wikipedia
+- tapOn: "CONTINUE"
+- tapOn: "CONTINUE"
+- tapOn: "CONTINUE"
+- tapOn: "GET STARTED"
+- tapOn: "Search"
+- assertVisible:
+    text: "Search Wikipedia"
+    index: 1
+- takeScreenshot: screenshots/search_wikipedia

@@ -1,0 +1,22 @@
+{
+  "name": "maestro",
+  "version": "1.0.0",
+  "description": "Mobile tests with Maestro",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "tests": "sh run-tests.sh",
+    "generate-html-report": "node report/generate-report.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "xml2js": "^0.4.23"
+  }
+}

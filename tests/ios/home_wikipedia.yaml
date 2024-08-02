@@ -1,0 +1,14 @@
+appId: org.wikimedia.wikipedia
+---
+- launchApp:
+    clearState: true
+
+# Validando conteúdo da home Wikipedia
+- tapOn: "Próximo"
+- tapOn: "Próximo"
+- tapOn: "Próximo"
+- takeScreenshot: screenshots/home_wikipedia_1
+- tapOn: "Começar"
+- assertVisible: "wikipedia"
+- assertVisible: "Procurar Wikipédia"
+- takeScreenshot: screenshots/home_wikipedia_2

@@ -1,0 +1,8 @@
+appId: org.wikimedia.wikipedia
+---
+
+# Validando conteúdo da página Lugares Wikipedia
+
+- tapOn: "Lugares"
+- assertVisible: "Lugares"
+- takeScreenshot: screenshots/places_wikipedia

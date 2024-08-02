@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tribo / BU - Test Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: white; }
+        h1 { color: green; font-size: 40px; margin-bottom: 10px; } 
+        h2 { color: #2e6c80; }
+        h3 { color: #2e6c80; font-size: 30px; font-weight: bold; margin-top: 5px; margin-bottom: 50px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; } 
+        .info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; } 
+        .info-left { display: flex; gap: 20px; }
+        .info-right { text-align: right; }
+        .info p { margin: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .passed { color: green; }
+        .failed { color: red; }
+        .icon-check::before { content: '✔'; color: green; margin-right: 5px; }
+        .icon-cross::before { content: '✘'; color: red; margin-right: 5px; }
+        .icon-clock::before { content: '⏱'; margin-right: 5px; }
+        .screenshot img { width: 250px; display: inline-block; margin: 10px 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="passed">Tribo / BU</h1>
+        <img src="data:image/png;base64,<%= imageBase64 %>" alt="Logo" style="height: 60px;">
+    </div>
+    <% testsuites.testsuite.forEach(function(suite) { %>
+    <h3>Squad</h3>
+    <div class="info">
+        <div class="info-left">
+            <p>Plataforma: <%= suite.$.device.includes('iPhone') ? 'iOS' : 'Android' %></p>
+            <p class="icon-check"><%= suite.$.tests - suite.$.failures %></p>
+            <p class="icon-cross"><%= suite.$.failures %></p>
+            <p class="icon-clock"><%= suite.$.time %> seconds</p>
+        </div>
+        <div class="info-right">
+            <p>Data e Hora da Execução: <%= new Date().toLocaleString() %></p>
+        </div>
+    </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test Case</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% suite.testcase.forEach(function(test) { %>
+                    <tr>
+                        <td><%= test.$.name %></td>
+                        <td><%= test.$.time %> seconds</td>
+                        <td class="<%= test.$.status === 'SUCCESS' ? 'passed' : 'failed' %>">
+                            <%= test.$.status %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="screenshot">
+                            <% 
+                                const screenshots = fs.readdirSync(screenshotsPath).filter(file => file.includes(test.$.name.toLowerCase().replace(/ /g, '_')));
+                                screenshots.forEach(function(screenshot) { 
+                            %>
+                                <img src="<%= path.join('..', 'screenshots', screenshot) %>" alt="Screenshot">
+                            <% }); %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% }); %>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="iPhone 15 Pro Max - iOS 17.2 - 5A119B24-480B-4C1E-A7A3-304B1ADFC5FC" tests="2" failures="0" time="33">
+    <testcase id="home_wikipedia" name="home_wikipedia" classname="home_wikipedia" time="25" status="SUCCESS"/>
+    <testcase id="places_wikipedia" name="places_wikipedia" classname="places_wikipedia" time="8" status="SUCCESS"/>
+  </testsuite>
+</testsuites>

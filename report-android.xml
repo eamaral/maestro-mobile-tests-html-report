@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="emulator-5554" tests="2" failures="0" time="39">
+    <testcase id="search_wikipedia" name="search_wikipedia" classname="search_wikipedia" time="20" status="SUCCESS"/>
+    <testcase id="home_wikipedia" name="home_wikipedia" classname="home_wikipedia" time="19" status="SUCCESS"/>
+  </testsuite>
+</testsuites>
